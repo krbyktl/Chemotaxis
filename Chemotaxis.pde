@@ -1,16 +1,25 @@
+//Bacteria [] colony;
 Bacteria bob;
  void setup()   
  {     
  	size(600, 600);
+ 	frameRate(10);
  }   
  void draw()   
  {    
  	background(0);
- 	bob = new Bacteria();   
+ 	bob = new Bacteria();
  	bob.walk();
- 	bob.show(); 
+ 	bob.show();
+ 	//colony = new Bacteria[8];   
+ 	//for(int i = 0; i < colony.length; i++)
+ 	//{
+ 		//colony[i] = new Bacteria();
+ 		//colony[i].walk();
+ 		//colony[i].show();
+ 	//}
  }  
- class Bacteria    
+ class Bacteria
  {     
  	int myX, myY;
  	Bacteria()
@@ -20,27 +29,12 @@ Bacteria bob;
  	}
  	void walk()
  	{
- 		int direction = (int)(Math.random()*4)+1;
- 		if(direction == 1)
- 		{
- 			myX = myX + 20;
- 		}
- 		else if(direction == 2)
- 		{
- 			myX = myX - 20;
- 		}
- 		else if(direction == 3)
- 		{
- 			myY = myY + 20;
- 		}
- 		else
- 		{
- 			myY = myY -20;
- 		}
+ 		myX = myX + (int)(Math.random()*3)-1;
+ 		myY = myY + (int)(Math.random()*3)-1;
  	}
  	void show()
  	{
- 		fill(255);
- 		ellipse(myX, myY, 40, 40);
+ 		fill(255, 0, 0);
+ 		ellipse(myX, myY, 10, 10);
  	}
  }    
