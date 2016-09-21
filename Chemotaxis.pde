@@ -1,23 +1,21 @@
-//Bacteria [] colony;
-Bacteria bob;
+Bacteria [] colony;
  void setup()   
  {     
  	size(600, 600);
- 	frameRate(10);
+ 	colony = new Bacteria[30];
+ 	for(int i = 0; i<colony.length; i++)
+ 	{
+ 		colony[i] = new Bacteria();
+ 	}
  }   
  void draw()   
- {    
- 	background(0);
- 	bob = new Bacteria();
- 	bob.walk();
- 	bob.show();
- 	//colony = new Bacteria[8];   
- 	//for(int i = 0; i < colony.length; i++)
- 	//{
- 		//colony[i] = new Bacteria();
- 		//colony[i].walk();
- 		//colony[i].show();
- 	//}
+ {   
+ 	background(0); 
+ 	for(int i = 0; i<colony.length; i++)
+ 	{
+ 		colony[i].walk();
+ 		colony[i].show();
+ 	}
  }  
  class Bacteria
  {     
@@ -35,6 +33,6 @@ Bacteria bob;
  	void show()
  	{
  		fill(255, 0, 0);
- 		ellipse(myX, myY, 10, 10);
+ 		ellipse(myX, myY, 15, 15);
  	}
  }    
