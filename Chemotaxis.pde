@@ -1,8 +1,8 @@
 Bacteria [] colony;
  void setup()   
  {     
-   size(600, 600);
-   colony = new Bacteria[30];
+   size(300, 300);
+   colony = new Bacteria[10];
    for(int i = 0; i<colony.length; i++)
    {
      colony[i] = new Bacteria();
@@ -10,7 +10,10 @@ Bacteria [] colony;
  }   
  void draw()   
  {   
-   background(50, 75, 150); 
+   background(200, 200, 0); 
+   fill(200, 235, 200);
+   ellipse(150, 150, 300, 300);
+   ellipse(150, 150, 280, 280);
    for(int i = 0; i<colony.length; i++)
    {
      colony[i].walk();
@@ -19,13 +22,15 @@ Bacteria [] colony;
  }  
  class Bacteria
  {     
-   int myX, myY, yourX, yourY;
+   int myX, myY, yourX, yourY, starX, starY;
    Bacteria()
    {
-     myX = 300;
-     myY = 300;
-     yourX = 250;
-     yourY = 250;
+     myX = 150;
+     myY = 150;
+     yourX = 145;
+     yourY = 145;
+     starX = 150;
+     starY = 260;
    }
    void walk()
    {
@@ -33,7 +38,6 @@ Bacteria [] colony;
      myY = myY + (int)(Math.random()*3)-1;
      yourX = yourX + (int)(Math.random()*5)-2;
      yourY = yourY + (int)(Math.random()*5)-2;
-     
    }
    void show()
    {
@@ -44,8 +48,10 @@ Bacteria [] colony;
      ellipse(yourX, yourY, 10, 10);
      if(get(myX+15, myY+15) == color(100))
      {
-       fill(255, 0, 0);
-       ellipse(300, 500, 15, 15);
+       starX = (int)(Math.random()*300);
+       starY = (int)(Math.random()*300);
+       textSize(42);
+       text("POW", starX, starY);
      }
    }
  }  
